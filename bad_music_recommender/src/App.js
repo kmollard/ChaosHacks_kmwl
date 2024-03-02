@@ -5,9 +5,9 @@ function App() {
     <div className="App">
       <div className="landingPage">
         <p id="introText">
-          Music Recommender
+          Chaotify
         </p>
-        <input type="text" id="genreInput" autocomplete="off" placeholder="What's your favourite artist?"></input>
+        <input type="text" id="genreInput" autocomplete="off" placeholder=" Who's your favourite artist?"></input>
       </div>
     </div>
   );
