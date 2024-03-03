@@ -101,7 +101,6 @@ input, select, textarea{
 
 .slideOut {
   animation: slideOut 2s forwards !important;
-  /* background: blue; */
 }
 
 

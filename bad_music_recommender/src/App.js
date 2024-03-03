@@ -19,13 +19,13 @@ function App() {
             Chaotify
           </p>
         </div>
-        <form name="search" method="post" onSubmit={handleSubmit}>
-          <input type="text" id="genreInput" autocomplete="off" placeholder="What genre do you want to listen to?" />
+        <form name="search" onSubmit={handleSubmit}>
+          <input type="text" id="genreInput" autocomplete="off" placeholder="What artist do you want to listen to?" />
           <input type="submit" hidden />
         </form>
       </div>
       <div className="musicPlayer">
-        
+
       </div>
     </div>
   );
