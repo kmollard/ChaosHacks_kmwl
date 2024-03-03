@@ -1,0 +1,65 @@
+Previous reources:
+
+https://web.postman.co
+https://developer.spotify.com/dashboard/a8026ea34434448f8a69373f7474b6b7/settings
+https://developer.spotify.com/documentation/web-api
+https://gist.github.com/andytlr/4104c667a62d8145aa3a
+
+async function search(){
+    console.log("Search for " + searchInput); //Tswizzle
+
+    // get request using search to get Artist ID
+    var searchParameters = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + accessToken
+      }
+    }
+    // Fetch Artist ID
+  var artistID = await fetch(`https://api.spotify.com/v1/search?q=${encodeURIComponent(searchInput)}&type=artist`, searchParameters)
+    .then(response => response.json())
+    .then(data => {
+      if (data.artists.items.length > 0) {
+        return data.artists.items[0].id;
+      } else {
+        console.log("Artist not found");
+        return null;
+      }
+    });
+
+  if (!artistID) {
+    console.log("No artist found with the name: " + searchInput);
+    return;
+  }
+
+  console.log("Artist ID is " + artistID);
+
+  // Fetch artist's details including their genres
+  var artistDetails = await fetch(`https://api.spotify.com/v1/artists/${artistID}`, searchParameters)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      return data; // This includes genres among other details
+    });
+
+  // Check if artist's genres are not in the random genres list
+  const artistGenres = artistDetails.genres;
+  const isGenreDifferent = artistGenres.some(genre => !randomGenre.includes(genre));
+
+  if (isGenreDifferent) {
+    console.log("Artist's genre is not in the random genres list:", artistGenres);
+  } else {
+    console.log("Artist's genre is in the random genres list:", artistGenres);
+  }
+
+  // Fetch artist's albums as you already do
+  var returnedAlbums = await fetch(`https://api.spotify.com/v1/artists/${artistID}/albums?include_groups=album&market=US&limit=8`, searchParameters)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      setAlbums(data.items);
+    });
+
+
+  }
