@@ -48,31 +48,60 @@
 }
 
 input, select, textarea{
+  padding-left: 10px;
   color: white;
 }
 
-#introText {
+.title {
+  display: flex;
   margin: 0;
+  align-items:center;
+  justify-content: center;
+  transform: translateY(-14vh);
+}
+
+#introText {
   font-family: "Archivo Black", sans-serif;
   font-weight: 400;
   font-style: normal;
-  flex-direction: column;
-  justify-content: center;
   font-size: 110px;
   color: #d72f20;
-  transform: translateY(-6vh);
+}
+
+#chaotifyLogo {
+  height:100px;
+  width:100px;
+  margin:0;
+  padding-right:30px;
 }
 
 #genreInput {
   width: 40vw;
   height: 5vh;
   border-style: solid;
-  border-color: white;
+  border-color: rgba(255, 255, 255, 0.5);
   border-width: 2px;
   border-radius: 1vh;
-  background-color: #282c34;
+  background-color: rgba(255, 255, 255, 0.04);;
   margin-top: 10px;
   font-size: 30px;
+  padding-left: 10px;
+  transform: translateY(-20vh);
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  } to {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+}
+
+.slideOut {
+  animation: slideOut 2s forwards !important;
+  /* background: blue; */
 }
 
 
