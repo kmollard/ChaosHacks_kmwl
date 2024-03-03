@@ -8,6 +8,14 @@
   animation: gradientBackground 15s ease infinite;
 }
 
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+}
+
 @keyframes slideUp {
   from {
     opacity: 0;
@@ -101,6 +109,72 @@ input, select, textarea{
 
 .slideOut {
   animation: slideOut 2s forwards !important;
+}
+
+.slideIn {
+  animation: slideUp 2s 0.7s forwards !important;
+}
+
+.audioPlayer {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  margin-top: 10vh;
+  height: 80vh;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  border: 5px double #d72f20;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.1px);
+  -webkit-backdrop-filter: blur(8.1px);
+}
+
+#playButton {
+  font-size:80px;
+  width: 110px;
+  border-color: rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0);
+}
+
+#songName {
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 40px;
+}
+
+#songArtist {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 20px;
+  transform: translateY(-20px);
+}
+
+.songInfo {
+  margin-top: 0px;
+  padding-top: 20px;
+}
+
+.playBar {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+#songCover {
+  border-radius:10px;
+  width:300px;
+  height:300px;
+}
+
+.songCover {
+  padding: 10vh;
+  padding-bottom:0;
+  width: 300px;
+  height: 300px;
 }
 
 
